@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
         - name: pedeai
-          image: pedeai-api-app:latest
-          imagePullPolicy: Never
+          image: DOCKER_IMAGE
           ports:
             - containerPort: 8080
           envFrom:
@@ -23,10 +22,3 @@ spec:
           resources:
             requests:
               cpu: 200m
-          volumeMounts:
-            - name: app-pv
-              mountPath: /var/app/imagens
-      volumes:
-        - name: app-pv
-          persistentVolumeClaim:
-            claimName: app-pvc
